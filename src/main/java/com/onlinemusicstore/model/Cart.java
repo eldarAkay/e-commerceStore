@@ -8,27 +8,25 @@ import java.util.Map;
  */
 public class Cart {
 
-    private int id;
+    private String id;
     private Map<Integer,CartItem> cartItems;
     private double grandTotal;
 
     public Cart() {
-
         this.cartItems = new HashMap<>();
         this.grandTotal = 0;
     }
 
-    public Cart(int id) {
+    public Cart(String id) {
         this();
         this.id = id;
-
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -48,5 +46,32 @@ public class Cart {
         this.grandTotal = grandTotal;
     }
 
+    public void addCartItem(CartItem item){
 
+        int productId = item.getProduct().getId();
+
+        if(cartItems.containsKey(productId)) {
+            CartItem existingCartItem = cartItems.get(productId);
+            existingCartItem.setQuantity(existingCartItem.getQuantity() + item.getQuantity());
+            cartItems.put(productId,existingCartItem);
+        } else {
+            cartItems.put(productId,item);
+        }
+
+        updateGrandTotal();
+
+    }
+
+    public void removeCartItem(CartItem item){
+        int productId = item.getProduct().getId();
+        cartItems.remove(productId);
+        updateGrandTotal();
+    }
+
+    private void updateGrandTotal() {
+        grandTotal = 0;
+        for(CartItem item: cartItems.values()){
+            grandTotal = grandTotal + item.getTotalPrice();
+        }
+    }
 }

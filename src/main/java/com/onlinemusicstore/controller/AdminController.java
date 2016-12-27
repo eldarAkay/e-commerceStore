@@ -78,7 +78,7 @@ public class AdminController {
             }
         }
 
-        return "redirect:/admin/productsInventory/addProduct";
+        return "redirect:/admin/productsInventory";
     }
 
 
@@ -89,7 +89,7 @@ public class AdminController {
             return "editProduct";
         }
 
-        productDao.edit(product);
+        productDao.update(product);
 
         MultipartFile image = product.getImage();
         path = Paths.get("/home/eldar/IdeaProjects/onlinemusicstore/images/" + product.getId() + ".jpg");
@@ -103,7 +103,7 @@ public class AdminController {
             }
         }
 
-        return "redirect:/admin/productsInventory/editProdu";
+        return "redirect:/admin/productsInventory";
     }
 
     @RequestMapping(value = "/admin/productsInventory/deleteProduct/{id}")
