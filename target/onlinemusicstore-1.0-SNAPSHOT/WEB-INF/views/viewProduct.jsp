@@ -26,7 +26,7 @@
 
                 <c:set var="role" scope="page" value="${param.role}"/>
                 <c:set var="url" scope="page" value="/products"/>
-                <c:if test="${role='admin'}">
+                <c:if test="${role=='admin'}">
                     <c:set var="url" scope="page" value="/admin/productsInventory"/>
                 </c:if>
 
