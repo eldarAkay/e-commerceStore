@@ -1,16 +1,21 @@
 package com.onlinemusicstore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by eldar on 21/12/16.
  */
 @Entity
-public class Product {
+public class Product implements Serializable {
+
+    private static final long serialVersionUID = -1570465485565746118L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,6 +31,10 @@ public class Product {
     @Min(value = 0,message = "may not be negative")
     private int unitsInStock;
     private String manufacturer;
+
+    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<CartItem> cartItemList;
 
     @Transient
     private MultipartFile image;
@@ -110,4 +119,11 @@ public class Product {
         this.manufacturer = manufacturer;
     }
 
+    public List<CartItem> getCartItemList() {
+        return cartItemList;
+    }
+
+    public void setCartItemList(List<CartItem> cartItemList) {
+        this.cartItemList = cartItemList;
+    }
 }

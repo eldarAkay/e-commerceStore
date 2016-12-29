@@ -1,15 +1,32 @@
 package com.onlinemusicstore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by eldar on 25/12/16.
  */
-public class Cart {
+@Entity
+public class Cart implements Serializable {
 
+
+    private static final long serialVersionUID = -7418523485662880104L;
+
+    @Id
+    @GeneratedValue
     private String id;
+    @OneToMany(mappedBy = "cart",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private Map<Integer,CartItem> cartItems;
+
+    @OneToOne
+    @JoinColumn(name = "customerId")
+    @JsonIgnore
+    private Customer customer;
+
     private double grandTotal;
 
     public Cart() {
