@@ -1,7 +1,6 @@
 package com.onlinemusicstore.dao;
 
 import com.onlinemusicstore.model.Product;
-
 import java.util.List;
 
 /**
@@ -9,13 +8,13 @@ import java.util.List;
  */
 public interface ProductDao {
 
-    void add(Product product);
+    List<Product> getProductList();
 
-    void update(Product product);
+    Product getProduct(int id);
 
-    Product get(int id);
+    void addProduct(Product product);
 
-    List<Product> getAll();
+    void editProduct(Product product);
 
-    void delete(int id);
+    void deleteProduct(Product product);
 }

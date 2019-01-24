@@ -7,10 +7,10 @@
         <p class="lead">Only Best goods!</p>
     </div>
 
-    <table class="table table-striped table-hover">
+    <table class="table table-hover" style="cursor: pointer">
         <thead>
         <tr class="bg-success">
-            <th>Photo Thumb</th>
+            <th>Image</th>
             <th>Product Name</th>
             <th>Category</th>
             <th>Condition</th>
@@ -21,18 +21,16 @@
         </thead>
         <tbody>
         <c:forEach items="${products}" var="product">
-            <tr>
+            <tr class="clickable-row" data-href="<spring:url value="/product/viewProduct/${product.id}"/>">
                 <td><img src="<c:url value="/images/${product.id}.jpg"/>" alt="image" style="width:100px;"/></td>
                 <td>${product.name}</td>
                 <td>${product.category}</td>
                 <td>${product.condition}</td>
                 <td>${product.price}</td>
-                <td><a href="<spring:url value="/products/viewProduct/${product.id}"/>">
-                    <i class="glyphicon glyphicon-info-sign"/></a></td>
-                <td><a href="<spring:url value="/admin/productsInventory/deleteProduct/${product.id}"/>">
+                <td><a href="<spring:url value="/admin/product/deleteProduct/${product.id}"/>">
                         <i class="glyphicon glyphicon-remove"/>
                     </a></td>
-                <td><a href="<spring:url value="/admin/productsInventory/editProduct/${product.id}"/>">
+                <td><a href="<spring:url value="/admin/product/editProduct/${product.id}"/>">
                     <i class="glyphicon glyphicon-edit"/>
                 </a></td>
             </tr>
@@ -40,6 +38,14 @@
         </tbody>
     </table>
 
-    <a href="<c:url value="/admin/productsInventory/addProduct"/>">Add Product</a>
+    <a href="<c:url value="/admin/product/addProduct"/>">Add Product</a>
+
+    <script>
+        jQuery(document).ready(function($) {
+            $(".clickable-row").click(function() {
+                window.document.location = $(this).data("href");
+            });
+        });
+    </script>
 
 <%@include file="/WEB-INF/views/template/footer.jsp" %>

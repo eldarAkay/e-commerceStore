@@ -7,7 +7,7 @@
         <p class="lead">Please insert the product info</p>
     </div>
 
-    <form:form action="${pageContext.request.contextPath}/admin/productsInventory/addProduct" method="post"
+    <form:form action="${pageContext.request.contextPath}/admin/product/addProduct" method="post"
                modelAttribute="product" enctype="multipart/form-data">
     <div class="form-group">
         <label>Name</label>

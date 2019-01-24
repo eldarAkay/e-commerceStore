@@ -7,7 +7,7 @@
         <p class="lead">Here you may make your updates</p>
     </div>
 
-    <form:form action="${pageContext.request.contextPath}/admin/productsInventory/editProduct/" method="post"
+    <form:form action="${pageContext.request.contextPath}/admin/product/editProduct/" method="post"
                modelAttribute="product" enctype="multipart/form-data">
     <form:hidden path="id" value="${product.id}"/>
 

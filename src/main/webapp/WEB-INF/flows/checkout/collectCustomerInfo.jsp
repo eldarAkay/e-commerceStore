@@ -7,7 +7,7 @@
         <p class="lead">Customer Details</p>
     </div>
 
-    <form:form commandName="order" class="form-horizontal">
+    <form:form commandName="customerOrder" class="form-horizontal">
 
     <h3>Common Info</h3>
 
@@ -54,7 +54,7 @@
     <input type="hidden" name="_flowExecutionKey" />
 
 
-    <input type="submit" value="Next" class="btn btn-primary" name="_eventId_customerInfoCollected">Submit</input>
+    <input type="submit" value="Next" class="btn btn-primary" name="_eventId_customerInfoCollected"></input>
     <button class="btn btn btn-default" name="_eventId_cancel">Cancel</button>
     </form:form>
 

@@ -13,6 +13,8 @@
     </h2>
     </c:if>
 
-    <h3><a href="<c:url value="/admin/productsInventory"/>">Product Inventory</a></h3>
+    <h3><a href="<c:url value="/admin/productInventory"/>">Product Inventory</a></h3>
+    <br>
+    <h3><a href="<c:url value="/admin/customer"/>">Customer Management</a></h3>
 
 <%@include file="/WEB-INF/views/template/footer.jsp" %>

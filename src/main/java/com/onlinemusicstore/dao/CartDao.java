@@ -1,17 +1,15 @@
 package com.onlinemusicstore.dao;
 
 import com.onlinemusicstore.model.Cart;
-
+import java.io.IOException;
 /**
  * Created by eldar on 25/12/16.
  */
 public interface CartDao {
 
-    Cart create(Cart cart);
+    Cart getCartById(int id);
 
-    Cart read(String cartId);
+    Cart validate(int cartId) throws IOException;
 
-    void update(String cartId,Cart cart);
-
-    void delete(String cartId);
+    void update(Cart cart);
 }

@@ -8,12 +8,12 @@ import javax.persistence.Id;
  * Created by eldar on 28/12/16.
  */
 @Entity
-public class User {
+public class Users {
 
     @Id
     @GeneratedValue
     private int id;
-    private String name;
+    private String username;
     private String password;
     private boolean enabled;
     private int customerId;
@@ -27,11 +27,11 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return username;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.username = name;
     }
 
     public String getPassword() {

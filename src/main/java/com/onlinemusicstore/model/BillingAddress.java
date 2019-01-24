@@ -1,8 +1,6 @@
 package com.onlinemusicstore.model;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -10,10 +8,10 @@ import java.io.Serializable;
  */
 @Entity
 public class BillingAddress implements Serializable {
-
-
     private static final long serialVersionUID = 5249189254339011121L;
 
+    @Id
+    @GeneratedValue
     private int id;
     private String apartmentNumber;
     private String street;

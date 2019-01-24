@@ -2,7 +2,6 @@ package com.onlinemusicstore.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -35,7 +34,7 @@ public class Customer implements Serializable {
     private boolean enabled;
 
     @OneToOne
-    @JoinColumn(name="biilingAddressId")
+    @JoinColumn(name="billingAddressId")
     private BillingAddress billingAddress;
 
     @OneToOne

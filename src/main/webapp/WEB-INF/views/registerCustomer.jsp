@@ -3,66 +3,94 @@
 
 <div class="container">
     <div class="page-header">
-        <h1>Add Product</h1>
-        <p class="lead">Please insert the product info</p>
+        <h1>Register Customer</h1>
+        <p class="lead">Please insert the customer details</p>
     </div>
 
-    <form:form action="${pageContext.request.contextPath}/admin/product/addProduct" method="post"
-               modelAttribute="product" enctype="multipart/form-data">
+    <form:form action="${pageContext.request.contextPath}/register/customer" method="post"
+               modelAttribute="customer">
+
+     <h3>Common Info</h3>
+
     <div class="form-group">
-        <label>Name</label>
+        <label>Name</label><form:errors path="name" cssStyle="color: red"/>
         <form:input path="name" class="form-control"/>
-        <form:errors path="name" cssStyle="color:red"/>
     </div>
     <div class="form-group">
-        <label>Category</label>
-        <label class="checkbox-inline">
-            <form:radiobutton path="category" class="form-control" value="instrument"/>Instrument</label>
-        <label class="checkbox-inline">
-            <form:radiobutton path="category" class="form-control" value="record"/>Record</label>
-        <label class="checkbox-inline">
-            <form:radiobutton path="category" class="form-control" value="accecory"/>Accessory</label>
+        <label>Email</label>
+        <form:input path="email" class="form-control"/>
     </div>
     <div class="form-group">
-        <label>Description</label>
-        <form:input path="description" class="form-control"/>
+        <label>Phone</label>
+        <form:input path="phone" class="form-control"/>
     </div>
     <div class="form-group">
-        <label>Price</label>
-        <form:input path="price" class="form-control"/>
-        <form:errors path="price" cssStyle="color:red"/>
+        <label>User Name(Login)</label><span style="color:red">${userNameMsg}</span> <form:errors path="userName" cssStyle="color: red"/>
+        <form:input path="userName" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <form:input path="password" class="form-control"/>
+    </div>
 
-    </div>
-    <div class="form-group">
-        <label>Condition</label>
-        <label class="checkbox-inline"><form:radiobutton path="condition" class="form-control"
-                                                         value="used" id="condition"/>Used</label>
-        <label class="checkbox-inline"><form:radiobutton path="condition" class="form-control"
-                                                         value="new" id="condition"/>New</label>
-    </div>
-    <div class="form-group">
-        <label>Status</label>
-        <label class="checkbox-inline"><form:radiobutton path="status" class="form-control"
-                                                         value="inactive"/>Inactive</label>
-        <label class="checkbox-inline"><form:radiobutton path="status" class="form-control"
-                                                         value="active"/>Active</label>
-    </div>
-    <div class="form-group">
-        <label>UnitsInStock</label>
-        <form:input path="unitsInStock" class="form-control"/>
-        <form:errors path="unitsInStock" cssStyle="color:red"/>
 
+    <h3>Billing Address</h3>
+    <div class="form-group">
+        <label>Apartment Number</label>
+        <form:input path="billingAddress.apartmentNumber" class="form-control"/>
     </div>
     <div class="form-group">
-        <label>Manufacturer</label>
-        <form:input path="manufacturer" class="form-control"/>
+        <label>Street</label>
+        <form:input path="billingAddress.street" class="form-control"/>
     </div>
     <div class="form-group">
-        <label>Product Image</label>
-        <form:input path="image" class="form:input" type="file"/>
+        <label>City</label>
+        <form:input path="billingAddress.city" class="form-control"/>
     </div>
+    <div class="form-group">
+        <label>State</label>
+        <form:input path="billingAddress.state" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label>Country</label>
+        <form:input path="billingAddress.country" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label>Zip Code</label>
+        <form:input path="billingAddress.zipCode" class="form-control"/>
+    </div>
+
+
+
+    <h3>Shipping Address</h3>
+
+    <div class="form-group">
+        <label>Apartment Number</label>
+        <form:input path="shippingAddress.apartmentNumber" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label>Street</label>
+        <form:input path="shippingAddress.street" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label>City</label>
+        <form:input path="shippingAddress.city" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label>State</label>
+        <form:input path="shippingAddress.state" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label>Country</label>
+        <form:input path="shippingAddress.country" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label>Zip Code</label>
+        <form:input path="shippingAddress.zipCode" class="form-control"/>
+    </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
-    <a class="btn btn-default" href="<c:url value="/admin/productsInventory"/>">Cancel</a>
+    <a class="btn btn-default" href="<c:url value="/"/>">Cancel</a>
     </form:form>
 
 

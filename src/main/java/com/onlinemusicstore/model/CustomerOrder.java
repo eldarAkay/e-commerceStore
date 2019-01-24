@@ -1,7 +1,6 @@
 package com.onlinemusicstore.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -9,8 +8,7 @@ import java.io.Serializable;
  * Created by eldar on 29/12/16.
  */
 @Entity
-public class Order implements Serializable {
-
+public class CustomerOrder implements Serializable {
 
     private static final long serialVersionUID = 8058700072122754704L;
 
@@ -33,7 +31,6 @@ public class Order implements Serializable {
     @OneToOne
     @JoinColumn(name = "shippingAddressId")
     private ShippingAddress shippingAddress;
-
 
     public static long getSerialVersionUID() {
         return serialVersionUID;

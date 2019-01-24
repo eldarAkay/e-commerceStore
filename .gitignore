@@ -1,4 +1,6 @@
 workspace.xml
 tasks.xml
-.idea/workspace.xml
-.idea
+onlinemusicstore.iml
+.idea/
+out/
+target

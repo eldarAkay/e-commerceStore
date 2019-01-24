@@ -1,16 +1,22 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: eldar
-  Date: 04/01/17
-  Time: 21:31
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@include file="/WEB-INF/views/template/header.jsp" %>
+
+
+<div class="container">
+    <section>
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="alert alert-danger">Check out cancelled!</h1>
+
+                <p>Your checkout cancelled</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <a href="<spring:url value="/product/productList"/>" class="btn btn-default">Products</a>
+    </section>
+
+
+</div>
+<%@include file="/WEB-INF/views/template/footer.jsp" %>

@@ -7,7 +7,7 @@
         <p class="lead">Customer Details</p>
     </div>
 
-    <form:form commandName="order" class="form-horizontal">
+    <form:form commandName="customerOrder" class="form-horizontal">
 
 
     <h3>Shipping Address</h3>
@@ -39,7 +39,7 @@
     <input type="hidden" name="_flowExecutionKey" />
 
     <button class="btn btn btn-default" name="_eventId_backToCollectCustomerInfo">Back</button>
-    <input type="submit" value="Next" class="btn btn-primary" name="_eventId_shippingDetailCollected">Submit</input>
+    <input type="submit" value="Next" class="btn btn-primary" name="_eventId_shippingDetailCollected"></input>
     <button class="btn btn btn-default" name="_eventId_cancel">Cancel</button>
     </form:form>
 

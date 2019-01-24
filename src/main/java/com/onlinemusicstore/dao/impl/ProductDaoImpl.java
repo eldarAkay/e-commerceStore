@@ -8,10 +8,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
-
-
+import java.util.Queue;
 /**
  * Created by eldar on 23/12/16.
  */
@@ -23,41 +21,42 @@ public class ProductDaoImpl implements ProductDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public void add(Product product) {
+    public List<Product> getProductList() {
         Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(product);
+        Query query = session.createQuery("from Product");
+        List<Product> productList = query.list();
         session.flush();
+
+        return productList;
     }
 
     @Override
-    public void update(Product product) {
-        Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(product);
-        session.flush();
-    }
-
-    @Override
-    public Product get(int id) {
+    public Product getProduct(int id) {
         Session session = sessionFactory.getCurrentSession();
         Product product = (Product) session.get(Product.class,id);
         session.flush();
+
         return product;
     }
 
     @Override
-    public List<Product> getAll() {
+    public void addProduct(Product product) {
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("from Product");
-        List<Product> products = query.list();
+        session.saveOrUpdate(product);
         session.flush();
-
-        return products;
     }
 
     @Override
-    public void delete(int id) {
+    public void editProduct(Product product) {
         Session session = sessionFactory.getCurrentSession();
-        session.delete(get(id));
+        session.saveOrUpdate(product);
+        session.flush();
+    }
+
+    @Override
+    public void deleteProduct(Product product) {
+        Session session = sessionFactory.getCurrentSession();
+        session.delete(product);
         session.flush();
     }
 }
